@@ -1,0 +1,26 @@
+{
+  "name": "honey_node",
+  "version": "0.0.1",
+  "description": "start fun express project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyungWanPark/node_start_project.git"
+  },
+  "author": "myungwanpark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MyungWanPark/node_start_project/issues"
+  },
+  "homepage": "https://github.com/MyungWanPark/node_start_project#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
