@@ -7,6 +7,9 @@ const session = require('express-session');
 
 dotenv.config();
 
+const indexRouter = require('./routes');
+const userRouter = require('./routes/user');
+
 const app = express();
 
 app.set('port', process.env.PORT || 3000);
@@ -37,6 +40,9 @@ app.use(session({
   cookie: { secure: false }
 })) */
 
+app.use('/', indexRouter);
+app.use('/user', userRouter);
+
 app.use((req, res, next) => {
     console.log('모든 요청에서 미들웨어가 실행됩니다.')
     next();
@@ -45,9 +51,15 @@ app.use((req, res, next) => {
 app.use('/', (req, res, next) => {
     console.log('get 요청에서 미들웨어가 실행됩니다.')
     next();
-}, (req, res) => {
+}
+/* , (req, res) => {
     throw new Error('에러는 에러 처리 미들웨어로 갑니다.');
-});
+} */
+);
+
+app.use((req, res, next) => {
+    res.status(404).send('not found!');
+})
 
 app.use((err, req, res, next) => {
     console.log(err);
